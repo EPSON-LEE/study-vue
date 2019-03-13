@@ -1,3 +1,4 @@
+// 
 function Observer(data) {
   this.data = data
   this.walk(data)
@@ -29,6 +30,7 @@ Observer.prototype = {
   }
 }
 
+// 观察者
 function Observe(value) {
   if (!value || typeof value !== 'object') {
     return
@@ -44,8 +46,8 @@ function Dep() {
 }
 
 Dep.prototype = {
-  addSub: function() {
-    this.subs.push()
+  addSub: function(sub) {
+    this.subs.push(sub)
   },
 
   depend: function() {
@@ -65,3 +67,5 @@ Dep.prototype = {
     })
   }
 }
+
+Dep.target = null
